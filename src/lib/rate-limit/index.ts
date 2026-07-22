@@ -1,0 +1,3 @@
+import { Redis } from "@upstash/redis";
+type Entry={count:number;expires:number};const memory=new Map<string,Entry>();
+export async function rateLimit(keys:string[],limit=5,windowSeconds=900){const url=process.env.UPSTASH_REDIS_REST_URL;const token=process.env.UPSTASH_REDIS_REST_TOKEN;if(url&&token){const redis=new Redis({url,token});for(const key of keys){const count=await redis.incr(`contact:${key}`);if(count===1)await redis.expire(`contact:${key}`,windowSeconds);if(count>limit)return false}return true}const now=Date.now();for(const key of keys){const e=memory.get(key);if(!e||e.expires<now)memory.set(key,{count:1,expires:now+windowSeconds*1000});else if(++e.count>limit)return false}return true}

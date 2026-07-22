@@ -1,0 +1,1 @@
+import{ResourcePage}from"@/components/admin/resource-page";export default function Page(){return <ResourcePage title="Configurações" description="Acesso exclusivo de administradores a dados críticos."/>}

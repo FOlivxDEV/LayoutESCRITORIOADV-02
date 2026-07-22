@@ -1,0 +1,1 @@
+import{describe,expect,it}from"vitest";import{contactSchema}from"@/lib/validation/contact";describe('contact flow contract',()=>{it('rejects honeypot',()=>expect(contactSchema.safeParse({website:'bot'}).success).toBe(false));it('requires consent',()=>expect(contactSchema.safeParse({privacyAccepted:false}).success).toBe(false))})

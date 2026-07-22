@@ -1,0 +1,1 @@
+"use client";export default function ErrorPage({reset}:{reset:()=>void}){return <div className="container py-40 text-center"><h1 className="title">Não foi possível carregar esta página</h1><p className="mt-4">Tente novamente em alguns instantes.</p><button className="btn btn-primary mt-7" onClick={reset}>Tentar novamente</button></div>}

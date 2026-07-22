@@ -1,0 +1,1 @@
+import{ResourcePage}from"@/components/admin/resource-page";export default function Page(){return <ResourcePage title="Contatos" description="Listagem protegida, filtros, paginação e mudança de status."/>}
