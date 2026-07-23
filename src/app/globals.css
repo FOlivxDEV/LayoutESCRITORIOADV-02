@@ -34,11 +34,11 @@ h1, h2, h3, .serif {
 }
 a, button, input, select, textarea { outline-offset: 4px; }
 :focus-visible { outline: 2px solid var(--champagne-light); }
-.container { width: min(1180px, calc(100% - 2rem)); margin-inline: auto; }
-.section { padding: clamp(5rem, 9vw, 8.5rem) 0; scroll-margin-top: 6rem; position: relative; }
+.container { width: min(1480px, calc(100% - clamp(2rem, 7vw, 8rem))); margin-inline: auto; }
+.section { padding: clamp(4.5rem, 7vw, 7rem) 0; scroll-margin-top: 6rem; position: relative; }
 .section::before { content: ""; position: absolute; inset-inline: 5%; top: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(216,183,122,.22), transparent); }
 .eyebrow { color: var(--champagne); font-size: .72rem; letter-spacing: .23em; text-transform: uppercase; font-weight: 600; }
-.title { color: var(--ivory); font-size: clamp(2.5rem, 5vw, 4.6rem); line-height: .98; font-weight: 500; }
+.title { max-width: 19ch; color: var(--ivory); font-size: clamp(2.15rem, 3.5vw, 3.65rem); line-height: 1.02; font-weight: 500; }
 
 /* Liquid glass: camadas translúcidas, brilho especular e profundidade. */
 .btn {
@@ -107,13 +107,16 @@ select option { color: #111; }
 
 #inicio { background: var(--night) !important; }
 #inicio > div.absolute { background: linear-gradient(90deg, rgba(7,5,11,.97) 0%, rgba(8,6,13,.78) 48%, rgba(8,6,13,.2) 100%) !important; }
-#inicio h1 { max-width: 900px; font-weight: 500; letter-spacing: -.035em; text-wrap: balance; }
+#inicio > .container { align-items: center; }
+#inicio > .container > div { max-width: min(42rem, 52vw); }
+#inicio h1 { max-width: 14ch; font-size: clamp(3rem, 4.7vw, 5.25rem) !important; line-height: 1.01; font-weight: 500; letter-spacing: -.035em; text-wrap: balance; }
+#inicio h1 + p { max-width: 35rem; font-size: clamp(.95rem, 1.15vw, 1.08rem); line-height: 1.75; }
 #inicio::after { content: ""; position: absolute; z-index: 3; pointer-events: none; inset-inline: 0; bottom: -1px; height: 150px; background: linear-gradient(to bottom, transparent, rgba(8,6,13,.38) 45%, var(--night) 100%); backdrop-filter: blur(7px); -webkit-backdrop-filter: blur(7px); mask-image: linear-gradient(to bottom,transparent,#000); }
 #areas { overflow: hidden; }
 #areas::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(rgba(8,6,13,.9), rgba(8,6,13,.97)), url('/images/hero-facade.jpg') center 40% / cover; opacity: .64; }
 #areas .card { text-align: center; padding-block: 2.25rem; }
 #areas .card svg { margin-inline: auto; color: var(--champagne); stroke-width: 1.25; width: 2.25rem; height: 2.25rem; }
-#areas .card h3 { font-size: 1.65rem; letter-spacing: .015em; }
+#areas .card h3 { font-size: 1.4rem; letter-spacing: .015em; }
 #equipe img { filter: saturate(.7) contrast(1.04); }
 [role="dialog"].bg-white { background: rgba(18,13,22,.9) !important; color: var(--ivory); border-color: rgba(255,255,255,.16) !important; backdrop-filter: blur(25px); }
 
@@ -164,6 +167,33 @@ main > section:last-child .btn { color: #241d26 !important; border-color: rgba(6
   opacity: 0;
   transform: translate3d(0, -26px, 0) scale(.994);
   filter: blur(4px);
+}
+
+/* Composição editorial mais ampla e menos densa. */
+.section > .container > .grid { column-gap: clamp(3rem, 7vw, 8rem); }
+.section p:not(.eyebrow) { font-size: clamp(.9rem, .95vw, 1rem); line-height: 1.7; }
+.card h3 { font-size: clamp(1.3rem, 1.65vw, 1.7rem); line-height: 1.08; }
+#escritorio .grid > div:last-child { max-width: 35rem; justify-self: end; }
+#areas > .container > .title,
+#equipe > .container > .title,
+#conteudos > .container > .title { max-width: 17ch; }
+#areas .grid,
+#equipe .grid { gap: clamp(1.25rem, 2vw, 2rem); }
+#conteudos .grid { gap: clamp(1.5rem, 3vw, 3rem); }
+#conteudos .card { padding: clamp(1.5rem, 2.5vw, 2.25rem); }
+#contato > .container > .max-w-3xl { max-width: 42rem; }
+
+@media (min-width: 1024px) {
+  #inicio > .container > div { margin-left: clamp(0rem, 2vw, 2rem); }
+  #escritorio .grid { grid-template-columns: 1.12fr .88fr; }
+  #contato .grid { grid-template-columns: minmax(17rem, .65fr) minmax(34rem, 1.35fr); column-gap: clamp(3rem, 7vw, 7rem); }
+}
+
+@media (max-width: 767px) {
+  .container { width: min(100% - 2rem, 42rem); }
+  #inicio > .container > div { max-width: 100%; }
+  #inicio h1 { font-size: clamp(2.55rem, 12vw, 3.6rem) !important; }
+  .title { font-size: clamp(2rem, 10vw, 2.8rem); }
 }
 
 @media (prefers-reduced-motion: reduce) {
