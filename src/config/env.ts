@@ -2,10 +2,6 @@ import { z } from "zod";
 const optionalUrl = z.string().url().optional().or(z.literal(""));
 export const serverEnvSchema = z.object({
   NEXT_PUBLIC_SITE_URL: optionalUrl,
-  NEXT_PUBLIC_SUPABASE_URL: optionalUrl,
-  NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: z.string().optional(),
-  NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().optional(),
-  SUPABASE_SERVICE_ROLE_KEY: z.string().optional(),
   RESEND_API_KEY: z.string().optional(),
   CONTACT_NOTIFICATION_EMAIL: z.string().email().optional(),
   EMAIL_FROM: z.string().optional(),
