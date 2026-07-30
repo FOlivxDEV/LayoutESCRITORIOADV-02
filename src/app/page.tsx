@@ -1,3 +1,221 @@
-import Image from "next/image";import Link from "next/link";import { ArrowRight,MessageCircle,Phone,Mail,Clock } from "lucide-react";import { areas,articles,team } from "@/content/data";import { credibility,siteConfig,whatsappUrl } from "@/config/site";import { ContactForm } from "@/components/forms/contact-form";
-export default function Home(){return <><section id="inicio" className="relative min-h-[760px] overflow-hidden bg-[#0a2038] pt-20 text-white"><Image src="/images/hero-facade.jpg" alt="Fachada contemporânea fictícia de escritório" fill priority sizes="100vw" className="object-cover opacity-45"/><div className="absolute inset-0 bg-gradient-to-r from-[#06182b]/95 via-[#06182b]/70 to-transparent"/><div className="container relative flex min-h-[680px] items-center"><div className="max-w-3xl"><p className="eyebrow !text-[#d7bd88]">Atendimento presencial e online</p><h1 className="mt-5 text-5xl leading-[1.02] font-semibold md:text-7xl">Experiência jurídica para proteger seus direitos e orientar suas decisões</h1><p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200">Há mais de uma década oferecendo orientação jurídica com clareza, responsabilidade e segurança para pessoas, famílias e empresas.</p><div className="mt-8 flex flex-wrap gap-3"><a className="btn bg-[#b69a63] text-[#07192b]" href="#contato">Fale com nossa equipe</a><a className="btn btn-light" href="#areas">Conheça nossas áreas</a></div></div></div></section><section className="bg-[#f5f0e7]"><div className="container grid md:grid-cols-4">{credibility.map((c,i)=><div className="border-b border-[#d8cbb4] px-5 py-7 md:border-r md:border-b-0" key={c.title}><p className="serif text-2xl font-semibold text-[#0a2038]">{c.title}</p><p className="mt-1 text-sm">{c.description}</p></div>)}</div></section><section id="escritorio" className="section"><div className="container grid items-center gap-12 lg:grid-cols-2"><div className="relative min-h-[520px] overflow-hidden rounded-md"><Image src="/images/team-office.jpg" alt="Equipe jurídica fictícia reunida em ambiente profissional" fill sizes="(min-width:1024px) 50vw,100vw" className="object-cover"/></div><div><p className="eyebrow">O escritório</p><h2 className="title mt-3">Experiência, estratégia e proximidade</h2><p className="mt-6 leading-8">O escritório Ferraz, Oliveira & Martins Advocacia atua há mais de uma década oferecendo suporte jurídico a pessoas, famílias e empresas. Nossa equipe reúne profissionais com atuação em diferentes áreas do Direito, trabalhando de forma integrada para compreender cada situação e apresentar caminhos jurídicos adequados.</p><p className="mt-4 leading-8">Com estrutura moderna, oferecemos atendimento presencial e online, priorizando comunicação clara, responsabilidade profissional e acompanhamento cuidadoso.</p><Link className="btn btn-primary mt-7" href="/escritorio">Conheça nossa história<ArrowRight size={17}/></Link></div></div></section><section id="areas" className="section bg-[#f7f8f9]"><div className="container"><p className="eyebrow">Áreas de atuação</p><h2 className="title mt-3">Orientação integrada em diferentes momentos</h2><div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">{areas.map(a=>{const Icon=a.icon;return <article className="card p-6 transition hover:-translate-y-1 hover:shadow-xl" key={a.slug}><Icon className="mb-8 text-[#9b7d42]"/><h3 className="text-2xl text-[#0a2038]">{a.name}</h3><p className="my-4 text-sm leading-6">{a.description}</p><Link className="font-bold text-[#0a2038] underline-offset-4 hover:underline" href={`/areas/${a.slug}`}>Saiba mais</Link></article>})}</div></div></section><section className="bg-[#0a2038] py-12 text-white"><div className="container"><h2 className="serif text-3xl">Como funciona nosso atendimento</h2><div className="mt-8 grid gap-6 md:grid-cols-4">{[['Entre em contato','Fale conosco pelo WhatsApp ou formulário.'],['Conte sua necessidade','Apresente brevemente a situação e a orientação procurada.'],['Análise inicial','A equipe verifica as informações e identifica próximos passos possíveis.'],['Orientação','Você recebe informações sobre a forma adequada de prosseguir.']].map((s,i)=><div className="relative border-l border-[#b69a63] pl-5" key={s[0]}><span className="text-sm text-[#d8bd85]">0{i+1}</span><h3 className="mt-2 text-xl">{s[0]}</h3><p className="mt-2 text-sm text-slate-300">{s[1]}</p></div>)}</div></div></section><section id="equipe" className="section"><div className="container"><p className="eyebrow">Nossa equipe</p><h2 className="title mt-3">Atuação multidisciplinar e próxima</h2><div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{team.map(p=><article className="card overflow-hidden" key={p.slug}><div className="relative aspect-[4/5]"><Image src={p.image} alt={`Retrato fictício de ${p.name}`} fill sizes="(min-width:1024px) 25vw,50vw" className="object-cover"/></div><div className="p-5"><h3 className="text-2xl text-[#0a2038]">{p.name}</h3><p className="font-semibold text-[#8a6e38]">{p.role}</p><p className="mt-3 text-sm">{p.area}</p><p className="mt-1 text-xs text-slate-500">{p.oab}</p><Link className="mt-4 inline-block font-bold" href={`/equipe/${p.slug}`}>Ver perfil →</Link></div></article>)}</div></div></section><section id="conteudos" className="section bg-[#f5f0e7]"><div className="container"><p className="eyebrow">Conteúdos jurídicos</p><h2 className="title mt-3">Informação clara para decisões conscientes</h2><div className="mt-10 grid gap-5 md:grid-cols-2">{articles.map(a=><article className="card p-7" key={a.slug}><p className="eyebrow">{a.category}</p><h3 className="mt-3 text-2xl text-[#0a2038]">{a.title}</h3><p className="my-4">{a.summary}</p><Link className="font-bold" href={`/conteudos/${a.slug}`}>Ler artigo →</Link></article>)}</div><Link className="btn btn-primary mt-8" href="/conteudos">Ver todos os conteúdos</Link></div></section><section id="contato" className="section"><div className="container"><div className="max-w-3xl"><p className="eyebrow">Contato</p><h2 className="title mt-3">Precisa de orientação jurídica?</h2><p className="mt-4 text-lg">Entre em contato com nossa equipe para apresentar sua necessidade e obter informações sobre a forma de atendimento do escritório.</p></div><div className="mt-10 grid gap-7 lg:grid-cols-[.8fr_1.2fr]"><div className="card h-fit bg-[#0a2038] p-8 text-white"><h3 className="serif text-3xl">Fale com o escritório</h3><Channel icon={<Phone/>} text={siteConfig.contact.phone}/><Channel icon={<MessageCircle/>} text={siteConfig.contact.whatsappDisplay}/><Channel icon={<Mail/>} text={siteConfig.contact.email}/><Channel icon={<Clock/>} text={siteConfig.contact.hours}/><a className="btn mt-5 bg-[#b69a63] text-[#07192b]" href={whatsappUrl()} target="_blank" rel="noopener noreferrer">Iniciar conversa</a></div><ContactForm/></div></div></section><section className="bg-[#0a2038] py-16 text-white"><div className="container flex flex-col items-start justify-between gap-8 md:flex-row md:items-center"><div><MessageCircle className="mb-4 text-[#b69a63]"/><h2 className="serif text-4xl">Ficou com alguma dúvida?</h2><p className="mt-3 max-w-2xl text-slate-300">Nossa equipe está disponível para explicar como funciona o atendimento e indicar o canal adequado para sua necessidade.</p><p className="mt-3 text-sm text-[#d8bd85]">Para preservar sua privacidade, evite encaminhar informações sensíveis no primeiro contato.</p></div><div className="flex flex-wrap gap-3"><a className="btn bg-[#b69a63] text-[#07192b]" href={whatsappUrl()} target="_blank" rel="noopener noreferrer">Tirar dúvida pelo WhatsApp</a><Link className="btn btn-light" href="/duvidas">Ver perguntas frequentes</Link></div></div></section></>}
-function Channel({icon,text}:{icon:React.ReactNode,text:string}){return <div className="mt-6 flex items-center gap-3 text-sm text-slate-200">{icon}{text}</div>}
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, MessageCircle, Phone, Mail, Clock } from "lucide-react";
+import { areas, articles } from "@/content/data";
+import { credibility, siteConfig, whatsappUrl } from "@/config/site";
+import { ContactForm } from "@/components/forms/contact-form";
+import { TeamCarousel } from "@/components/sections/team-carousel";
+export default function Home() {
+  return (
+    <>
+      <section id="inicio" className="relative min-h-[760px] overflow-hidden bg-[#0a2038] pt-20 text-white">
+        <Image
+          src="/images/hero-facade.jpg"
+          alt="Fachada contemporânea fictícia de escritório"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-45"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#06182b]/95 via-[#06182b]/70 to-transparent" />
+        <div className="relative container flex min-h-[680px] items-center">
+          <div className="max-w-3xl">
+            <p className="eyebrow !text-[#d7bd88]">Atendimento presencial e online</p>
+            <h1 className="mt-5 text-5xl leading-[1.02] font-semibold md:text-7xl">
+              Experiência jurídica para proteger seus direitos e orientar suas decisões
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200">
+              Há mais de uma década oferecendo orientação jurídica com clareza, responsabilidade e segurança para
+              pessoas, famílias e empresas.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a className="btn bg-[#b69a63] text-[#07192b]" href="#contato">
+                Fale com nossa equipe
+              </a>
+              <a className="btn btn-light" href="#areas">
+                Conheça nossas áreas
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="bg-[#f5f0e7]">
+        <div className="container grid md:grid-cols-4">
+          {credibility.map((c, i) => (
+            <div className="border-b border-[#d8cbb4] px-5 py-7 md:border-r md:border-b-0" key={c.title}>
+              <p className="serif text-2xl font-semibold text-[#0a2038]">{c.title}</p>
+              <p className="mt-1 text-sm">{c.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section id="escritorio" className="section">
+        <div className="container grid items-center gap-12 lg:grid-cols-2">
+          <div className="relative min-h-[520px] overflow-hidden rounded-md">
+            <Image
+              src="/images/team-office.jpg"
+              alt="Equipe jurídica fictícia reunida em ambiente profissional"
+              fill
+              sizes="(min-width:1024px) 50vw,100vw"
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <p className="eyebrow">O escritório</p>
+            <h2 className="title mt-3">Experiência, estratégia e proximidade</h2>
+            <p className="mt-6 leading-8">
+              O escritório Ferraz, Oliveira & Martins Advocacia atua há mais de uma década oferecendo suporte jurídico a
+              pessoas, famílias e empresas. Nossa equipe reúne profissionais com atuação em diferentes áreas do Direito,
+              trabalhando de forma integrada para compreender cada situação e apresentar caminhos jurídicos adequados.
+            </p>
+            <p className="mt-4 leading-8">
+              Com estrutura moderna, oferecemos atendimento presencial e online, priorizando comunicação clara,
+              responsabilidade profissional e acompanhamento cuidadoso.
+            </p>
+            <Link className="btn btn-primary mt-7" href="/escritorio">
+              Conheça nossa história
+              <ArrowRight size={17} />
+            </Link>
+          </div>
+        </div>
+      </section>
+      <section id="areas" className="section bg-[#f7f8f9]">
+        <div className="container">
+          <p className="eyebrow">Áreas de atuação</p>
+          <h2 className="title mt-3">Orientação integrada em diferentes momentos</h2>
+          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {areas.map((a) => {
+              const Icon = a.icon;
+              return (
+                <article className="card p-6 transition hover:-translate-y-1 hover:shadow-xl" key={a.slug}>
+                  <Icon className="mb-8 text-[#9b7d42]" />
+                  <h3 className="text-2xl text-[#0a2038]">{a.name}</h3>
+                  <p className="my-4 text-sm leading-6">{a.description}</p>
+                  <Link
+                    className="font-bold text-[#0a2038] underline-offset-4 hover:underline"
+                    href={`/areas/${a.slug}`}
+                  >
+                    Saiba mais
+                  </Link>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+      <section className="bg-[#0a2038] py-12 text-white">
+        <div className="container">
+          <h2 className="serif text-3xl">Como funciona nosso atendimento</h2>
+          <div className="mt-8 grid gap-6 md:grid-cols-4">
+            {[
+              ["Entre em contato", "Fale conosco pelo WhatsApp ou formulário."],
+              ["Conte sua necessidade", "Apresente brevemente a situação e a orientação procurada."],
+              ["Análise inicial", "A equipe verifica as informações e identifica próximos passos possíveis."],
+              ["Orientação", "Você recebe informações sobre a forma adequada de prosseguir."],
+            ].map((s, i) => (
+              <div className="relative border-l border-[#b69a63] pl-5" key={s[0]}>
+                <span className="text-sm text-[#d8bd85]">0{i + 1}</span>
+                <h3 className="mt-2 text-xl">{s[0]}</h3>
+                <p className="mt-2 text-sm text-slate-300">{s[1]}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section id="equipe" className="section">
+        <div className="container">
+          <p className="eyebrow">Nossa equipe</p>
+          <h2 className="title mt-3">Atuação multidisciplinar e próxima</h2>
+          <TeamCarousel />
+        </div>
+      </section>
+      <section id="conteudos" className="section bg-[#f5f0e7]">
+        <div className="container">
+          <p className="eyebrow">Conteúdos jurídicos</p>
+          <h2 className="title mt-3">Informação clara para decisões conscientes</h2>
+          <div className="mt-10 grid gap-5 md:grid-cols-2">
+            {articles.map((a) => (
+              <article className="card p-7" key={a.slug}>
+                <p className="eyebrow">{a.category}</p>
+                <h3 className="mt-3 text-2xl text-[#0a2038]">{a.title}</h3>
+                <p className="my-4">{a.summary}</p>
+                <Link className="font-bold" href={`/conteudos/${a.slug}`}>
+                  Ler artigo →
+                </Link>
+              </article>
+            ))}
+          </div>
+          <Link className="btn btn-primary mt-8" href="/conteudos">
+            Ver todos os conteúdos
+          </Link>
+        </div>
+      </section>
+      <section id="contato" className="section">
+        <div className="container">
+          <div className="max-w-3xl">
+            <p className="eyebrow">Contato</p>
+            <h2 className="title mt-3">Precisa de orientação jurídica?</h2>
+            <p className="mt-4 text-lg">
+              Entre em contato com nossa equipe para apresentar sua necessidade e obter informações sobre a forma de
+              atendimento do escritório.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-7 lg:grid-cols-[.8fr_1.2fr]">
+            <div className="card h-fit bg-[#0a2038] p-8 text-white">
+              <h3 className="serif text-3xl">Fale com o escritório</h3>
+              <Channel icon={<Phone />} text={siteConfig.contact.phone} />
+              <Channel icon={<MessageCircle />} text={siteConfig.contact.whatsappDisplay} />
+              <Channel icon={<Mail />} text={siteConfig.contact.email} />
+              <Channel icon={<Clock />} text={siteConfig.contact.hours} />
+              <a
+                className="btn mt-5 bg-[#b69a63] text-[#07192b]"
+                href={whatsappUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Iniciar conversa
+              </a>
+            </div>
+            <ContactForm />
+          </div>
+        </div>
+      </section>
+      <section className="bg-[#0a2038] py-16 text-white">
+        <div className="container flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+          <div>
+            <MessageCircle className="mb-4 text-[#b69a63]" />
+            <h2 className="serif text-4xl">Ficou com alguma dúvida?</h2>
+            <p className="mt-3 max-w-2xl text-slate-300">
+              Nossa equipe está disponível para explicar como funciona o atendimento e indicar o canal adequado para sua
+              necessidade.
+            </p>
+            <p className="mt-3 text-sm text-[#d8bd85]">
+              Para preservar sua privacidade, evite encaminhar informações sensíveis no primeiro contato.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <a
+              className="btn bg-[#b69a63] text-[#07192b]"
+              href={whatsappUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Tirar dúvida pelo WhatsApp
+            </a>
+            <Link className="btn btn-light" href="/duvidas">
+              Ver perguntas frequentes
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+function Channel({ icon, text }: { icon: React.ReactNode; text: string }) {
+  return (
+    <div className="mt-6 flex items-center gap-3 text-sm text-slate-200">
+      {icon}
+      {text}
+    </div>
+  );
+}

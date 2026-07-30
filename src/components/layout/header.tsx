@@ -13,8 +13,7 @@ export function Header() {
   useEffect(() => {
     const update = () => {
       const hero = document.getElementById("inicio");
-      const threshold = hero ? hero.offsetHeight - 140 : window.innerHeight * 0.75;
-      setScrolled(scrollY > threshold);
+      setScrolled(!hero || scrollY > 8);
     };
     update();
     addEventListener("scroll", update, { passive: true });

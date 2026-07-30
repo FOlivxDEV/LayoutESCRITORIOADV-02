@@ -1,17 +1,16 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { contactSchema, subjects, type ContactFormInput, type ContactInput } from "@/lib/validation/contact";
 
 export function ContactForm() {
-  const startedAt = useMemo(() => Date.now(), []);
-  const sessionId = useMemo(() => crypto.randomUUID(), []);
   const [status, setStatus] = useState("");
-  const { register, handleSubmit, watch, reset, formState: { errors, isSubmitting } } = useForm<ContactFormInput, unknown, ContactInput>({
+  const { register, handleSubmit, watch, reset, setValue, formState: { errors, isSubmitting } } = useForm<ContactFormInput, unknown, ContactInput>({
     resolver: zodResolver(contactSchema),
-    defaultValues: { privacyAccepted: false, website: "", policyVersion: "2026-07", startedAt, sessionId },
+    defaultValues: { privacyAccepted: false, website: "", policyVersion: "2026-07", startedAt: 0, sessionId: "" },
   });
+  useEffect(() => { setValue("startedAt", Date.now()); setValue("sessionId", crypto.randomUUID()); }, [setValue]);
   const message = watch("message") ?? "";
   async function submit(data: ContactInput) {
     setStatus("");

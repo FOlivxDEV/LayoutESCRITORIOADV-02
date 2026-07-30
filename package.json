@@ -1,11 +1,11 @@
 {
-  "name": "site-juridico",
+  "name": "projeto-site-juridico-institucional",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "vinext dev",
+    "dev": "vinext dev --port 3200",
     "build": "vinext build",
-    "start": "vinext start",
+    "start": "vinext start --port 3200",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",

@@ -9,10 +9,10 @@ export const areas = [
 
 // DEMONSTRAÇÃO: substituir todos os nomes, fotografias, cargos e registros fictícios antes da publicação.
 export const team = [
-  { slug: "mariana-ferraz", name: "Mariana Ferraz", role: "Sócia-fundadora", area: "Direito de Família e Sucessões", oab: "OAB/UF 00.000 — DEMO", image: "/images/mariana.jpg" },
-  { slug: "ricardo-oliveira", name: "Ricardo Oliveira", role: "Sócio", area: "Direito Trabalhista", oab: "OAB/UF 00.000 — DEMO", image: "/images/ricardo.jpg" },
-  { slug: "helena-martins", name: "Helena Martins", role: "Sócia", area: "Direito Previdenciário", oab: "OAB/UF 00.000 — DEMO", image: "/images/helena.jpg" },
-  { slug: "gustavo-almeida", name: "Gustavo Almeida", role: "Advogado associado", area: "Direito Empresarial", oab: "OAB/UF 00.000 — DEMO", image: "/images/gustavo.jpg" },
+  { slug: "mariana-ferraz", name: "Mariana Ferraz", role: "Sócia-fundadora", area: "Direito de Família e Sucessões", oab: "OAB/UF 00.000 — DEMO", image: "/images/mariana-portrait.jpg" },
+  { slug: "ricardo-oliveira", name: "Ricardo Oliveira", role: "Sócio", area: "Direito Trabalhista", oab: "OAB/UF 00.000 — DEMO", image: "/images/ricardo-portrait.jpg" },
+  { slug: "helena-martins", name: "Helena Martins", role: "Sócia", area: "Direito Previdenciário", oab: "OAB/UF 00.000 — DEMO", image: "/images/helena-portrait.jpg" },
+  { slug: "gustavo-almeida", name: "Gustavo Almeida", role: "Advogado associado", area: "Direito Empresarial", oab: "OAB/UF 00.000 — DEMO", image: "/images/gustavo-portrait.jpg" },
 ] as const;
 
 export const articles = [
