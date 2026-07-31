@@ -24,6 +24,7 @@
 !/build/sites-vite-plugin.ts
 /dist
 /.wrangler
+/.vinext
 
 # misc
 .DS_Store

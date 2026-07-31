@@ -10,8 +10,8 @@ export default function Home() {
     <>
       <section id="inicio" className="relative min-h-[760px] overflow-hidden bg-[#0a2038] pt-20 text-white">
         <Image
-          src="/images/hero-facade.jpg"
-          alt="Fachada contemporânea fictícia de escritório"
+          src="/images/aurea-hero.png"
+          alt="Fachada contemporânea fictícia da Auréa Advocacia"
           fill
           priority
           sizes="100vw"
@@ -53,8 +53,8 @@ export default function Home() {
         <div className="container grid items-center gap-12 lg:grid-cols-2">
           <div className="relative min-h-[520px] overflow-hidden rounded-md">
             <Image
-              src="/images/team-office.jpg"
-              alt="Equipe jurídica fictícia reunida em ambiente profissional"
+              src="/images/aurea-team.png"
+              alt="Equipe fictícia da Auréa Advocacia reunida em ambiente profissional"
               fill
               sizes="(min-width:1024px) 50vw,100vw"
               className="object-cover"
@@ -64,8 +64,8 @@ export default function Home() {
             <p className="eyebrow">O escritório</p>
             <h2 className="title mt-3">Experiência, estratégia e proximidade</h2>
             <p className="mt-6 leading-8">
-              O escritório Ferraz, Oliveira & Martins Advocacia atua há mais de uma década oferecendo suporte jurídico a
-              pessoas, famílias e empresas. Nossa equipe reúne profissionais com atuação em diferentes áreas do Direito,
+              A Auréa Advocacia oferece suporte jurídico a pessoas, famílias e empresas com escuta atenta, estratégia e
+              comunicação clara. Nossa equipe reúne profissionais com atuação em diferentes áreas do Direito,
               trabalhando de forma integrada para compreender cada situação e apresentar caminhos jurídicos adequados.
             </p>
             <p className="mt-4 leading-8">

@@ -117,7 +117,7 @@ main > section.bg-\[\#0a2038\]:not(#inicio) .grid > div { min-height: 150px; pad
 input, select, textarea { border: 0 !important; border-bottom: 1px solid #bbb3a6 !important; border-radius: 0 !important; color: var(--ink); background: transparent; }
 select option { color: var(--ink); }
 
-main > section:last-child { color: white !important; background: linear-gradient(90deg,rgba(15,28,35,.96),rgba(23,41,52,.93)),url('/images/hero-facade.jpg') center/cover !important; }
+main > section:last-child { color: white !important; background: linear-gradient(90deg,rgba(15,28,35,.96),rgba(23,41,52,.93)),url('/images/aurea-hero.png') center/cover !important; }
 main > section:last-child h2, main > section:last-child p { color: white !important; }
 main > section:last-child .btn.bg-\[\#b69a63\] { color: var(--navy) !important; border-color: #e0c995 !important; background: #e0c995 !important; }
 
