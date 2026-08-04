@@ -1,4 +1,4 @@
-# Projeto institucional independente
+# Auréa Advocacia
 
 Esta pasta contém a versão visual reformulada do site como um projeto autônomo.
 
@@ -8,4 +8,4 @@ Esta pasta contém a versão visual reformulada do site como um projeto autônom
 - Código, imagens, dependências e variáveis ficam isolados nesta pasta.
 - O projeto não compartilha a configuração de hospedagem da versão original.
 
-Abra `projeto-segunda-parte` diretamente no editor para trabalhar somente nesta versão.
+Abra a pasta `Aurea Advocacia` diretamente no editor para trabalhar somente nesta versão.
